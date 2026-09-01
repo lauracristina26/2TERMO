@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌸 ✨ Estudos e Projetos — 2º Semestre ✨ 🌸
+# 🌸 ✨ Estudos e Projetos — 2º Termo ✨ 🌸
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Em_Andamento-ff69b4?style=for-the-badge&logoColor=white" />
