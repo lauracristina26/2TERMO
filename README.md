@@ -5,7 +5,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Em_Andamento-ff69b4?style=for-the-badge&logoColor=white" />
   <img src="https://img.shields.io/badge/2º_Termo-DEVIE-ffb6c1?style=for-the-badge&logoColor=white" />
-  <img src="https://img.shields.io/badge/Made_with-💖-ff1493?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Made_with-love&code💖-ff1493?style=for-the-badge" />
 </p>
 
 </div>
