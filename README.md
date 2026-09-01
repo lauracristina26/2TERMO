@@ -29,30 +29,30 @@ Repositório dedicado ao armazenamento dos meus estudos, projetos e atividades p
   <img src="https://img.shields.io/badge/Backend-FFC0CB?style=for-the-badge&logo=node.js&logoColor=4A1525" />
 </p>
 
-#### 🗄️ Banco de Dados
+#### 🗄️ Banco de Dados 🕸️๋࣭ ⭑
 - Modelagem Conceitual, Lógica e Física (DER / MER) 🧠
 - Comandos SQL: `CREATE`, `INSERT`, `SELECT`, `JOINs` 🌸
 - Normalização e integridade de dados 👛
 - *Ferramentas:* [MySQL / Workbench / PostgreSQL]
 
-#### 🌐 Linguagem de Marcação
+#### 🌐 Linguagem de Marcação ִֶָ. ..𓂃 ࣪ ִֶָ🪽་༘࿐
 - HTML5 Semântico e Estruturação Web ✨
-- Estilização com CSS3, Flexbox e Layout Responsivo 💄
+- Estilização com CSS3, Flexbox e Layout Responsivo 🤩
 - Acessibilidade web e padronização visual 🎨
 - *Ferramentas:* VS Code, Figma, Live Server
 
-#### ⚙️ Backend
+#### ⚙️ Backend 𓏲 ๋࣭ ࣪ ˖🎐
 - Lógica de programação e estrutura de dados 🎀
 - Construção e manipulação de APIs REST 🦄
 - Regras de negócio integradas ao banco de dados ⚡
 - *Tecnologia:* [Node.js / Python / C# / JavaScript]
 
-#### 🚀 Projetos Integrados
+#### 🚀 Projetos Integrados 𓆝 𓆟 𓆞 𓆝 𓆟
 - Aplicações práticas unindo interface, lógica de servidor e persistência de dados 🍨
 
 ---
 
-### 📁 Estrutura do Repositório
+### 📁 Estrutura do Repositório ﹒⌗﹒🦇﹒౨ৎ˚₊‧
 
 ```text
 .
