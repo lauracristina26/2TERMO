@@ -16,7 +16,7 @@
 
 > *"Code, design & data with a touch of pink."* 🩰
 
-Repositório dedicado ao armazenamento dos meus estudos, projetos e atividades práticas durante o **2º semestre** do curso de [Nome do seu Curso].
+Repositório dedicado ao armazenamento dos meus estudos, projetos e atividades práticas durante o **2º semestre** do curso de [Desenvolvimento de Sistemas] na instituição [SENAI "Luiz Varga" Limeira].
 
 ---
 
