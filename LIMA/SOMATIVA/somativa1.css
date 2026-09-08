@@ -1,0 +1,63 @@
+header {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-right: 20xp;
+    margin: 15xp;
+    text-align: center;
+    background-color: palevioletred;
+
+}
+
+main {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+nav {
+    color:aliceblue
+}
+
+
+h1 {
+    text-align: center;
+    color:aliceblue;
+    margin-top: 15px;
+}
+
+h2 {
+    color:palevioletred;
+    text-align: right;
+    padding-left: 55px;
+
+}
+
+h3 {
+    font-size:larger;
+    color: palevioletred;
+    text-align: center;
+
+}
+
+h4 {
+    color: palevioletred;
+    font-weight: 700;
+}
+
+
+h5 {
+    color: palevioletred;
+    font-weight: 700;
+    font-size: large;
+}
+
+button {
+    background-color: palevioletred;
+    color:aliceblue;
+    font-size: medium;
+
+}
+
+footer {
+    text-align: center;
+    background-color: palevioletred;
+    color:aliceblue
+}
+
