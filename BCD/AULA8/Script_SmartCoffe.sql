@@ -30,10 +30,8 @@ Quantidade int not null,
 ID_Pedidos int primary key auto_increment PRIMARY KEY,
 Nome_Pedido varchar(20) not null,
 Data_Pedidos datetime not null,
-Valor_Total decimal(5.2) not null,
-Tipo_Pedido varchar(14) not null,
-ID_Pagamentos int,
-FOREIGN KEY(ID_Pagamentos) REFERENCES Pagamentos (ID_Pagamentos)
+Valor_Total decimal(10,2) not null,
+Tipo_Pedido varchar(14) not null
 )
 
 CREATE TABLE Clientes (
@@ -43,10 +41,7 @@ Telefone varchar(14),
 Email varchar(60) not null,
 Endereço varchar(40) not null,
 ID_Cliente int primary key auto_increment PRIMARY KEY,
-Data_Cadastro datetime not null,
-ID_Fidelidade int ,
-ID_Produtos int primary key auto_increment,
-FOREIGN KEY(ID_Fidelidade) REFERENCES Fidelidade (ID_Fidelidade)
+Data_Cadastro datetime not null
 )
 
 CREATE TABLE Produtos (
@@ -83,22 +78,9 @@ FOREIGN KEY(ID_Delivery) REFERENCES Delivery (ID_Delivery),
 FOREIGN KEY(ID_Estoque) REFERENCES Estoque (ID_Estoque)
 )
 
-CREATE TABLE Faz (
-ID_Pagamentos int ,
-ID_Cliente int ,
-FOREIGN KEY(ID_Pagamentos) REFERENCES Pagamentos (ID_Pagamentos),
-FOREIGN KEY(ID_Cliente) REFERENCES Clientes (ID_Cliente)
-)
-
-CREATE TABLE Realiza (
-ID_Cliente int,
-ID_Pedidos int ,
-FOREIGN KEY(ID_Cliente) REFERENCES Clientes (ID_Cliente),
-FOREIGN KEY(ID_Pedidos) REFERENCES Pedidos (ID_Pedidos)
-)
 
 CREATE TABLE Atende (
-ID_Pedidos int ,
+ID_Pedidos int,
 ID_Funcionários int ,
 FOREIGN KEY(ID_Pedidos) REFERENCES Pedidos (ID_Pedidos),
 FOREIGN KEY(ID_Funcionários) REFERENCES Funcionários (ID_Funcionários)
@@ -112,8 +94,8 @@ FOREIGN KEY(ID_Delivery) REFERENCES Delivery (ID_Delivery)
 )
 
 CREATE TABLE Contém (
-ID_Pedidos int ,
-ID_Produtos int ,
+ID_Pedidos int,
+ID_Produtos int,
 FOREIGN KEY(ID_Pedidos) REFERENCES Pedidos (ID_Pedidos),
 FOREIGN KEY(ID_Produtos) REFERENCES Produtos (ID_Produtos)
 )
@@ -138,5 +120,3 @@ ID_Estoque int ,
 FOREIGN KEY(ID_Produtos) REFERENCES Produtos (ID_Produtos),
 FOREIGN KEY(ID_Estoque) REFERENCES Estoque (ID_Estoque)
 )
-
-ALTER TABLE Clientes ADD FOREIGN KEY(ID_Produtos) REFERENCES Produtos (ID_Produtos)
