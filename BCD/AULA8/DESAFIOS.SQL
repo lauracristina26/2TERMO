@@ -1,5 +1,6 @@
 -- Active: 1788267989003@@127.0.0.1@3306@smartcoffe_dml_lauracristina
-USE smartcoffee_dml;
+
+USE SMARTCOFFE_DML_LAURACRISTINA;
 
 -- PARTE A - INSERT
 
@@ -10,19 +11,30 @@ INSERT INTO cliente (nome, email, telefone, cidade, ativo) VALUES
 
 -- 2. Cadastre a categoria 'Especiais da Casa'.
 INSERT INTO categoria (nome_categoria) VALUES
-('Especiais da Casa')
+('Especiais da Casa');
 
 -- 3. Localize o id da categoria criada e cadastre três produtos nela.
+INSERT INTO produto (nome_produto, preco, ativo, id_categoria) VALUES
+('Biscotos Recheados', 5.50, TRUE, 12),
+('Brigadeiro', 2.50, TRUE, 12),
+('Morango do Amor', 5.50, TRUE, 12);
 
 
 -- 4. Cadastre um terceiro cliente sem telefone.
-
+INSERT INTO cliente (nome, email, telefone, cidade, ativo) VALUES
+('Rapunzel', 'rapunzel@email.com', NULL, 'Campinas', TRUE);
 
 -- 5. Crie um novo pedido para um dos clientes cadastrados.
+INSERT INTO pedido (data_pedido, status_pedido, valor_total, id_cliente) VALUES
+(NOW(), 'Preparando', 3.50, 27);
 
+-- 6. Use LAST_INSERT_ID() para guardar o id do pedido em @pedido_atividade e insira pelo menos dois itens nesse pedido.
+SET @pedido = LAST_INSERT_ID();
+SELECT @pedido;
+INSERT INTO item_pedido (id_pedido, id_produto, quantidade, preco_unitario, observacao) VALUES
+(@pedido, 23, 13, 2.50, 'Nutella');
 
--- 6. Use LAST_INSERT_ID() para guardar o id do pedido em @pedido_atividade
---    e insira pelo menos dois itens nesse pedido.
+SELECT * FROM cliente; 
 
 
 -- PARTE B - UPDATE
@@ -31,7 +43,9 @@ INSERT INTO categoria (nome_categoria) VALUES
 -- SELECT de validação:
 -- UPDATE:
 -- SELECT final:
-
+UPDATE cliente
+SET telefone = '1999927832'
+WHERE id_cliente = 28;
 
 -- 8. Altere cidade e telefone de outro cliente em um único UPDATE.
 
