@@ -1,0 +1,17 @@
+[
+  {
+    "nome": "Suporte",
+    "quantidade": 2,
+    "custo": 70
+  },
+  {
+    "nome": "Pastelha",
+    "quantidade": 1,
+    "custo": 20
+  },
+  {
+    "nome": "Torneira",
+    "quantidade": 4,
+    "custo": 40
+  }
+]
