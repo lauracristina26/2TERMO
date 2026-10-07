@@ -35,3 +35,10 @@
     padding: 30px 8%
 }
 
+.cards {
+     display: flex;
+    gap: 30px;
+    list-style: none;
+    height: 150px;
+    align-items: flex-start; 
+}
