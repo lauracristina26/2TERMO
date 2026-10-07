@@ -1,6 +1,6 @@
 -- Active: 1788267989003@@127.0.0.1@3306@smartcoffe_dml_lauracristina
 
-USE SMARTCOFFE_DML_LAURACRISTINA;
+USE smartcoffe_dml_lauracristina;
 
 -- PARTE A - INSERT
 
@@ -45,10 +45,14 @@ SELECT * FROM cliente;
 -- SELECT final:
 UPDATE cliente
 SET telefone = '1999927832'
-WHERE id_cliente = 28;
+WHERE id_cliente = 28
+SELECT telefone FROM cliente;
 
 -- 8. Altere cidade e telefone de outro cliente em um único UPDATE.
-
+UPDATE cliente
+SET cidade = 'Campinas'
+    telefone = '1999998816'
+WHERE id_cliente = 2;
 
 -- 9. Aumente em 8% o preço dos produtos da categoria 'Especiais da Casa'.
 
