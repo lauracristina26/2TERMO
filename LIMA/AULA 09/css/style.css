@@ -1,7 +1,10 @@
-header a {
+.cafea {
+    display: flex;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
+    font-size: 10px;
     font-weight: 500;
+    background-color: lightpink;
+    justify-content: flex-end;
 }
 
 /* .banner {
@@ -9,13 +12,6 @@ header a {
     padding: 20px;
 } */
 
-.cabecalho {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: pink;
-    color: white;
-    text-align: center;
-    padding: 10px;
-}
 
 nav ul {
     display: flex;
