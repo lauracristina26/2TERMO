@@ -1,0 +1,59 @@
+/* Exercicio 1 */
+/* .grid-itens {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    list-style: none;
+    margin: 0;
+}  */
+
+/* Exercicio 2 */
+/* .grid-itens {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+    list-style: none;
+    margin: 0; 
+} */
+
+/* Exercicio 3 */
+/* .grid-itens {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+} Uma coluna vai ficar maior que a outra pois quando este comando é colocado, deixa um embaixo do outro e um para fora, logo a coluna aior é a primeira.*/
+
+/* Exercicio 4 */
+/* .grid-itens {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+} */
+
+/* Exercicio 5 */
+/* DESKTOP */
+.colunas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    list-style: none;
+}
+
+/* TABLET */
+/* @media (max-width: 700px) {
+    .grid-colunas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-itens {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* CELULAR */
+/* @media (max-width: 600px) {
+    .grid-colunas {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-itens {
+        grid-template-columns: 1fr;
+    }
+}  */
