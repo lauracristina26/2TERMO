@@ -1,0 +1,40 @@
+.cafea {
+    display: flex;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 10px;
+    font-weight: 500;
+    background-color: lightpink;
+    justify-content: flex-end;
+}
+
+/* .banner {
+    background-color: pink;
+    padding: 20px;
+} */
+
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    background-color: pink;
+    padding: 5px;
+    text-decoration: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+h1 {
+    float: left;
+    padding-bottom: 10px;
+    
+}

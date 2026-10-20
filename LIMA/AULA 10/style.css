@@ -1,0 +1,79 @@
+.flexb {
+    /* O display SEMPRE vai ser necessario em TUDO QUE FOR FLEXBOX */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30%;
+    background-color: brown;
+    /* Alinhar itens no sentido horizontal ou seja em linhas */
+    /* justify-content: center; */
+    /* justify-content: flex-end; */
+    /* justify-content: flex-start;
+    justify-content: space-around; /*fax espacamento entre os textos */
+    /* justify-content: space-between; /* dá mais espacamento  
+    justify-content: space-evenly ; */
+
+}
+
+.menu-f {
+    display: flex;
+    gap: 43px; /*dá espçamento*/
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.flex-ban {
+    display: flex;
+    align-items: center;
+    gap: 43px;
+    padding: 60px 8%;
+    background-color: lightpink;
+}
+
+.flex-ban-c, .flex-ban-imagem {
+    flex: 1;
+}
+
+.flex-ban-imagem {
+    margin: 0;
+}
+
+.flex-ban-imagem img {
+    width: 100%;
+    display: block;
+}
+
+.flex-cs  {
+    display: flex;
+    gap: 23px;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.flex-cs > li {
+    flex: 1;
+    min-width: 223px;
+}
+
+.flex.con {
+    display: flex;
+    gap: 43px;
+    align-items: flex-start;
+    padding: 60px 8%;
+}
+
+.flex-con-c, .flex-con form {
+    flex: 1;
+}
+
+.flex-ca {
+    display: flex;
+    height: 150px;
+    /* width: 200px; */
+    background-color: rgb(250, 240, 227);
+    align-items: flex-start; /* alinha tudo*/
+}
+
