@@ -82,3 +82,52 @@ SELECT SUM(valor_total) AS Faturamento_Total
 FROM pedido
 WHERE status_pedido = 'Finalizado';
 
+-- PARTE D - RELACIONAMENTOS
+
+-- 16. Liste cada pedido exibindo id, data, nome do cliente, status e valor total.
+SELECT P.ID_PEDIDO, P.DATA_PEDIDO, C.NOME AS CLIENTE, P.STATUS_PEDIDO, P.VALOR_TOTAL
+FROM PEDIDO AS P 
+INNER JOIN CLIENTE AS C 
+ON C.ID_CLIENTE = P.ID_CLIENTE
+
+-- 17. Liste cada produto acompanhado do nome de sua categoria.
+
+
+-- 18. Gere um relatório dos itens vendidos: pedido, produto, quantidade, preço unitário e subtotal.
+SELECT P.ID_PEDIDO, DATE_FORMAT(P.DATA_PEDIDO, '%d %m %Y %H:%i') AS DATA, C.NOME AS CLIENTE, PR.NOME_PRODUTO AS PRODUTO, IP.QUANTIDADE, IP.PRECO_UNITARIO, IP.QUANTIDADE * IP.PRECO_UNITARIO AS SUBTOTAL
+FROM PEDIDO AS P
+INNER JOIN CLIENTE AS C 
+ON C.ID_CLIENTE = P.ID_CLIENTE
+INNER JOIN ITEM_PEDIDO AS IP
+ON IP.ID_PEDIDO = P.ID_PEDIDO
+INNER JOIN PRODUTO AS PR 
+ON PR.ID_PRODUTO = IP.ID_PRODUTO
+ORDER BY P.ID_PEDIDO
+
+
+-- 19. Mostre todos os clientes, inclusive aqueles que nunca fizeram pedidos.
+
+
+-- 20. Liste apenas os clientes que nunca fizeram pedidos.
+
+
+-- PARTE E - DESAFIO GERENCIAL
+
+-- 21. Informe quantos pedidos FINALIZADOS cada cliente realizou e quanto
+--     cada cliente gastou. Ordene do maior gasto para o menor.
+
+
+-- 22. Mostre a quantidade de produtos e o preço médio de cada categoria.
+
+
+-- 23. Descubra quais produtos possuem preço superior ao preço médio geral.
+
+
+-- 24. Classifique os produtos como Econômico, Intermediário ou Premium.
+--     Defina e informe suas faixas de preço.
+
+
+-- 25. CONSULTA AUTORAL
+-- Pergunta de negócio:
+--
+-- Por que essa informação é útil?
