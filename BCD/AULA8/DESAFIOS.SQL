@@ -83,17 +83,32 @@ WHERE id_cliente = 35;
 
 
 -- 15. Explique em comentário por que a FK bloqueou a exclusão.
--- Resposta:
-
+-- Resposta: A Foreign Key (Chave Estrangeira) garante a Integridade Referencial do banco de dados. Ela impede a formação de dados "órfãos" — neste caso, registros na tabela pedidos que apontariam para um id_cliente inexistente. Para deletar o cliente, seria necessário primeiro tratar os registros filhos em pedidos ou definir regras como ON DELETE CASCADE na FK.
 
 -- 16. Crie uma categoria temporária chamada 'Excluir Depois' e remova-a.
+INSERT INTO categoria (nome_categoria, descricao) VALUES
+('Categoria Teste', 'Categoria temporária sem produtos');
+SET @categoria_teste = LAST_INSERT_ID();
+-- SELECT de validação:
+SELECT id_categoria, nome_categoria
+FROM categoria 
+WHERE id_categoria = @categoria_teste;
+DELETE FROM categoria
+WHERE id_categoria = @categoria_teste;
+-- SELECT final:
+SELECT id_categoria, nome_categoria
+FROM categoria 
+WHERE id_categoria = @categoria_teste;
 
 -- PARTE D - INTEGRIDADE E ERROS CONTROLADOS
 -- Execute uma tentativa por vez. Depois deixe o comando problemático comentado.
 
 -- 17. Tente inserir um produto com id_categoria = 9999.
 -- Qual restrição impediu a operação?
-
+ INSERT INTO produtos (nome, preco, id_categoria, ativo) VALUES ('Produto Teste FK', 15.00, 9999, TRUE);
+-- Qual restrição impediu a operação?
+-- Restrição: FOREIGN KEY (Chave Estrangeira - fk_produtos_categoria).
+-- Explicação: O ID de categoria 9999 não existe na tabela pai (categoria).
 
 -- 18. Tente cadastrar um cliente usando 'ana@email.com'.
 -- Qual restrição impediu a operação?
@@ -106,14 +121,15 @@ INSERT INTO cliente (nome, email, telefone, cidade, ativo) VALUES
 -- Qual restrição impediu a operação?
 INSERT INTO pedido (data_pedido, status_pedido, valor_total, id_cliente) VALUES
 (NOW(), 'ABERTO',0.00,9999);
+-- A restrição foi que não tem como adicionar nem dar um update pois a chave estrageira falhou.
 
 -- 20. Escreva em comentários a diferença entre os três erros anteriores.
-
+--As questões 17 e 19 geraram erros de CHAVE ESTRANGEIRA (FOREIGN KEY), pois tentaram vincular um registro filho a um registro pai inexistente (violação da Integridade Referencial entre tabelas). A questão 18 gerou um erro de CHAVE ÚNICA (UNIQUE CONSTRAINT), pois tentou inserir um valor duplicado em uma coluna da própria tabela que exige valores estritamente exclusivos.
 
 -- PARTE E - DESAFIO COMPLETO COM TRANSAÇÃO
 
 -- 21. Inicie uma transação.
-
+START TRANSACTION;
 
 -- 22. Dentro dela, cadastre um cliente, um pedido e dois itens relacionados.
 INSERT INTO clientes (nome, email, telefone, cidade, ativo) 
@@ -146,7 +162,38 @@ WHERE c.id_cliente = @id_cliente;
 
 
 -- 25. Repita o processo com novos dados e finalize usando COMMIT. Depois consulte os registros persistidos.
-
+START TRANSACTION;
+INSERT INTO clientes (nome, email, telefone, cidade, ativo) 
+VALUES ('Carlos Eduardo', 'carlos.eduardo@email.com', '19933332222', 'Americana', TRUE);
+SET @id_cliente_commit = LAST_INSERT_ID();
+INSERT INTO pedidos (id_cliente, data_pedido, status, valor_total) 
+VALUES (@id_cliente_commit, NOW(), 'FINALIZADO', 40.00);
+SET @id_pedidos_commit = LAST_INSERT_ID();
+INSERT INTO itens_pedido (id_pedido, id_produto, quantidade, preco_unitario) 
+VALUES 
+    (@id_ped_commit, 1, 2, 20.00);
+COMMIT;
+SELECT 
+    c.nome AS cliente,
+    p.id_pedido,
+    p.status,
+    p.valor_total,
+    i.id_produto,
+    i.quantidade
+FROM clientes c
+JOIN pedidos p ON c.id_cliente = p.id_cliente
+JOIN itens_pedido i ON p.id_pedido = i.id_pedido
+WHERE c.id_cliente = @id_cli_commit;
 
 -- DESAFIO EXTRA
 -- 26. Escolha uma situação realista do SmartCoffee que exija INSERT + UPDATE ou UPDATE + DELETE lógico. Descreva a regra de negócio e implemente.
+INSERT INTO log_sistema (data_evento, usuario, descricao) 
+VALUES (NOW(), 'admin_smartcoffee', 'Descontinuação da categoria Sazonais de Inverno e inativação em lote.');
+UPDATE produto p
+JOIN categoria c ON p.id_categoria = c.id_categoria
+SET p.ativo = FALSE
+WHERE c.nome = 'Sazonais de Inverno';
+SELECT p.id_produto, p.nome, p.ativo, c.nome AS categoria
+FROM produtos p
+JOIN categoria c ON p.id_categoria = c.id_categoria
+WHERE c.nome = 'Sazonais de Inverno';
