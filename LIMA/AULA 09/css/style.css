@@ -1,9 +1,27 @@
+:root {
+    /* Paleta de Cores */
+    --café: 
+    --chocolate amargo:
+    --
+
+    /* Tipografia */
+    --fonte-principal: 'Fraunces Bold Italic', serif;
+    --fonte-texto: 'Fraunces Regular', serif;
+    --fonte-secundária: 'Times New Roman'
+
+    /* Espaçamento */
+    --espaco-xs: 4px;
+    --espaco-sm: 8px;
+    --espaco-md: 16px;
+    --espaco-lg: 24px; 
+}
+
 .cafea {
     display: flex;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 10px;
     font-weight: 500;
-    background-color: lightpink;
+    background-color: pink;
     justify-content: flex-end;
 }
 
@@ -13,7 +31,7 @@
 } */
 
 
-nav ul {
+.cafea-banner{
     display: flex;
     justify-content: flex-end;
     background-color: pink;
@@ -23,18 +41,22 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: white;
 }
 
 ul {
     list-style: none;
     display: flex;
+    justify-content: flex-end;
     flex-direction: row;
     gap: 30px;
 }
 
-h1 {
+h1, h2 {
     float: left;
     padding-bottom: 10px;
     
 }
+
+
+
+
