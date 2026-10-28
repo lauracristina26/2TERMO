@@ -28,6 +28,13 @@ img {
     display: block;
 }
 
+.titulo-principal {
+    display: flex;
+    justify-content: center;
+    font-family: "Julius Sans One", sans-serif;
+    font-weight: 400;
+}
+
 /* ==========================================================================
    2. Header e Menu de Navegação
    ========================================================================== */
@@ -71,7 +78,7 @@ header nav ul li a:hover {
 main {
     max-width: 600px; /* Mantém a estrutura vertical esguia igual à imagem */
     margin: 0 auto;
-    background-color: #f7dfd4; /* Fundo nude pastel idêntico ao da imagem */
+    background-color: #f7ebe1; /* Fundo nude pastel idêntico ao da imagem */
     padding: 20px 0;
 }
 
@@ -154,7 +161,11 @@ footer {
 }
 
 footer h3 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     font-size: 0.85rem;
+    font-family: "Julius Sans One", sans-serif;
     margin-bottom: 15px;
     font-weight: 600;
     color: #333;
@@ -180,6 +191,12 @@ footer section[banners="Identidade Corporativa"] figure img {
 footer nav[banners="Redes Sociais"] ul {
     display: flex;
     gap: 10px;
+}
+
+footer nav ul [banners="Mapa-Site"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Esconde textos de acessibilidade dos ícones se necessário */
