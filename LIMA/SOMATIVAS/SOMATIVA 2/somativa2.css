@@ -1,0 +1,23 @@
+:root {
+    /* Paleta de Cores */
+    --preto-azulado: #0B1426;
+    --preto: #000;
+    --azul: #111184;
+    --rosa-claro: #FFB5C0;
+    --rosa: #FF1493;
+    --roxo: #6D4AFF;
+
+    /* Tipografia */
+    --fonte-principal:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    --fonte-texto: "Playfair Display", serif;
+    --fonte-secundária: 'Times New Roman';
+}
+
+* {
+    background-color: var(--preto-azulado);
+}
+
+.filmeas {
+    display: flex;
+    
+}
