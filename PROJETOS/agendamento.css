@@ -1,4 +1,4 @@
-/* Resets globais */
+
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #F9F3EE; /* Cor de fundo suave da imagem */
+  background-color: #F9F3EE; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,6 @@ body {
   text-align: center;
 }
 
-/* Logo Circular */
 .logo-container {
   width: 180px;
   height: 180px;
@@ -40,7 +39,6 @@ body {
   object-fit: cover;
 }
 
-/* Nome de Usuário */
 .username {
   font-size: 0.85rem;
   letter-spacing: 1px;
@@ -49,7 +47,6 @@ body {
   font-weight: 500;
 }
 
-/* Estilo dos Botões Principais */
 .buttons-container {
   width: 100%;
   display: flex;
@@ -59,7 +56,7 @@ body {
 }
 
 .btn-link {
-  background-color: #F3E5DC; /* Tom bege/rosado do botão */
+  background-color: #F3E5DC; 
   border: none;
   border-radius: 4px;
   padding: 12px 16px;
@@ -91,7 +88,7 @@ body {
   text-align: left;
 }
 
-/* Ícones das Redes Sociais */
+
 .social-icons {
   display: flex;
   justify-content: center;
@@ -99,7 +96,7 @@ body {
 }
 
 .social-icons button {
-  background-color: #801328; /* Cor vinho/bordo exata da marca */
+  background-color: #801328; 
   border: none;
   width: 50px;
   height: 50px;
