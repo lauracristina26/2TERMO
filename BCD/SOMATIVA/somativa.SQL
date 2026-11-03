@@ -5,6 +5,7 @@
 -- 1. Criação do banco
 CREATE DATABASE biblioteca_som2_lauracristina;
 USE biblioteca_som2_lauracristina;
+DROP DATABASE biblioteca_som2_lauracristina;
 -- Criação das tabelas
 CREATE TABLE USUARIO (
     id_usuario INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -160,8 +161,53 @@ ORDER BY U.nome;
 -- START TRANSACTION; registre novo empréstimo; reduza o estoque em 1; consulte para conferir; finalize com COMMIT.
 START TRANSACTION;
 UPDATE emprestimo 
-SET data_emprestimo = 2026-09-24
-    data_prevista = 2026-10-08
-    status_emprestimo = 'ABERTO'
+SET data_emprestimo = '2026-09-24'
 WHERE id_emprestimo = 1;
-SELECT * 
+SELECT * FROM emprestimo WHERE id_emprestimo = 1;
+COMMIT;
+
+-- 22. ROLLBACK
+-- Altere propositalmente a quantidade de um livro dentro de uma transação, consulte, execute ROLLBACK e comprove o retorno do valor anterior.
+START TRANSACTION;
+UPDATE livro
+SET quantidade_disponivel = 25
+WHERE id_livro = 23;
+SELECT * FROM livro;
+ROLLBACK;
+
+-- 23. SAVEPOINT
+-- Faça duas alterações em livros diferentes; após a primeira, crie um SAVEPOINT. Desfaça apenas a segunda e confirme a primeira.
+START TRANSACTION;
+UPDATE livro
+SET quantidade_disponivel = quantidade_disponivel + 4
+WHERE id_livro = 24;
+SAVEPOINT Reajuste_Livros;
+UPDATE livro
+SET quantidade_disponivel = quantidade_disponivel + 5
+WHERE id_livro = 19;
+
+RELEASE TO SAVEPOINT Reajuste_Livros;
+COMMIT;
+SELECT * FROM livro;
+
+
+-- 24. Transição de devolução 
+-- Localize empréstimo ABERTO, marque DEVOLVIDO, registre data de devolução, aumente estoque em 1 e execute COMMIT.
+SELECT status_emprestimo FROM emprestimo;
+START TRANSACTION;
+UPDATE emprestimo
+SET status_emprestimo = 'DEVOLVIDO'
+WHERE id_emprestimo = 1;
+SELECT * FROM emprestimo WHERE id_emprestimo + 1;
+COMMIT
+
+-- 8. Desafio Final
+-- 25. Análise técnica
+-- Para cada situação abaixo, identifique o mecanismo mais adequado entre constraint, integridade referencial, transação ou regra da aplicação, e justifique tecnicamente sua escolha.
+-- Cadastrar dois usuários com o mesmo e-mail. É uma constraint, pois a constraint
+-- Cadastrar dois livros com o mesmo ISBN. 
+-- Permitir quantidade disponível negativa. É uma regra de aolicação, pois tem uma rega definida sobre a quantidade que está disponível, que no caso é negativa. 
+-- Criar empréstimo para usuário inexistente. 
+-- Excluir livro com histórico de empréstimos. 
+-- Gravar empréstimo e falhar na redução do estoque.
+-- Emprestar livro cuja quantidade disponível seja zero.
