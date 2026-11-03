@@ -204,10 +204,17 @@ COMMIT
 -- 8. Desafio Final
 -- 25. Análise técnica
 -- Para cada situação abaixo, identifique o mecanismo mais adequado entre constraint, integridade referencial, transação ou regra da aplicação, e justifique tecnicamente sua escolha.
--- Cadastrar dois usuários com o mesmo e-mail. É uma constraint, pois a constraint
--- Cadastrar dois livros com o mesmo ISBN. 
--- Permitir quantidade disponível negativa. É uma regra de aolicação, pois tem uma rega definida sobre a quantidade que está disponível, que no caso é negativa. 
--- Criar empréstimo para usuário inexistente. 
--- Excluir livro com histórico de empréstimos. 
--- Gravar empréstimo e falhar na redução do estoque.
--- Emprestar livro cuja quantidade disponível seja zero.
+
+-- Cadastrar dois usuários com o mesmo e-mail. É uma integridade referencial e constraint, pois a situação descrita dá erro, pois não seria possivel pois é definido anteriomento como UNIQUE (que é uma constraint). OU seja, o email dos usuários DEVEM ser unicos, e se dois ou mais usuários tentarem cadastrar com o mesmo e-mail vai dar erro para preservar a organização e regras definidas no banco de dados. 
+
+-- Cadastrar dois livros com o mesmo ISBN. É uma integridade referencial e constraint, pois a situação descrita dá erro, pois não seria possivel pois é definido anteriomento como UNIQUE (que é uma constraint). OU seja, o email dos usuários DEVEM ser unicos, e se dois ou mais usuários tentarem cadastrar com o mesmo e-mail vai dar erro para preservar a organização e regras definidas no banco de dados. 
+
+-- Permitir quantidade disponível negativa. É uma regra de aplicação, pois tem uma rega definida sobre a quantidade que está disponível, que no caso é negativa.
+
+-- Criar empréstimo para usuário inexistente. É uma integridade referencial, pois ao fazer isso, vai houver o reconhecimento que é um usuário inexistente, e vai dar erro pois não consegue achar o caminho que necessita fazer para criar o empréstimo.
+
+-- Excluir livro com histórico de empréstimos. É uma transação, pois vai ser excluido um livro de forma consciente, e se deletado definitivamente vai ser um commit, porém há a possibilidade de ser deltado temporariamente utilizando savepoint/realease. 
+
+-- Gravar empréstimo e falhar na redução do estoque. 
+
+-- Emprestar livro cuja quantidade disponível seja zero. 
