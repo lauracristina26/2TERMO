@@ -4,6 +4,7 @@
     --preto: #000;
     --azul: #111184;
     --rosa-claro: #FFB5C0;
+    --branco: #FFFFFF;
     --rosa: #FF1493;
     --roxo: #6D4AFF;
 
@@ -14,10 +15,85 @@
 }
 
 * {
-    /* background-color: var(--preto-azulado); */
+    text-decoration: none;
 }
+
+
+body {
+    background-color: var(--preto-azulado);
+    color: var(--branco);
+}
+
+ul {
+    list-style-type: none;
+}
+
 
 .filmeas {
     display: flex;
-    
+    justify-content: flex-start;
+    align-items: start;
+    font-family: var(--fonte-principal);
+    font-size: 24px;
+}
+
+.titulo-nostalgia {
+    color: var(--branco);
+}
+
+.titulo-filme {
+    color: var(--rosa);
+}
+
+.filmeas nav {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-items: end; 
+    justify-content: end;
+    color: var(--branco);
+    font-size: 20px;
+}
+
+p {
+    color: var(--branco);
+}
+
+.banner-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.banner-conteudo a {
+  background-color: var(--rosa);
+  color: var(--branco);
+  padding: 13px 26px;
+  border: none;
+  border-radius: 28px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  transform: translateY(-8px);
+  box-shadow: 0 16px 22px -8px rgba(0, 0, 0, 0.35);
+
+}
+
+.banner-imagem {
+    display: inline-block;
+    background-position: top left;
+    object-fit: cover;
+    filter: brightness(1.6);
+    width: auto;
+    height: auto;
+}
+
+.italic-frases {
+    font-family: var(--fonte-secundária);
+    font-style: italic;
+    font-weight: 700;
+}
+
+.filmes-classicos {
+    display: grid;
+    justify-items: center;
+    align-items: stretch;
 }

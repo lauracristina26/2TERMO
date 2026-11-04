@@ -94,7 +94,7 @@ INSERT INTO livro (titulo, autor, isbn, ano_publicacao, quantidade_disponivel) V
 ('O Calice Dos Deuses', 'Rick Riordan', '1776726', '2023', '4');
 
 -- DELETE
--- Crie e exclua um usuário sem empréstimos. Depois tente excluir um usuário quE possua empréstimo e explique o resultado.
+-- Crie e exclua um usuário sem empréstimos. Depois tente excluir um usuário que possua empréstimo e explique o resultado.
 INSERT INTO usuario (nome, email, telefone, ativo) VALUES
 ('Anne Hatway', 'annehatway@gmail.com', '199998202', TRUE);
 
