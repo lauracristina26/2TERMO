@@ -137,7 +137,8 @@ LEFT JOIN locacao AS l
 ON c.id_cliente = l.id_locacao
 ORDER BY c.nome;
 
--- Fase 4: TCL 
+-- Fase 4: TCL
+-- Transação de locação
 START TRANSACTION;
 UPDATE locacao
 SET data_prevista = '2026-09-24'
@@ -145,4 +146,29 @@ WHERE id_locacao = 1;
 SELECT * FROM locacao WHERE id_locacao = 1;
 COMMIT;
 
+-- ROLLLBACK
+START TRANSACTION;
+UPDATE jogo
+SET quantidade_disponivel = 25
+WHERE id_jogo = 43;
+SELECT * FROM jogo;
+ROLLBACK;
 
+-- SAVEPOINT
+START TRANSACTION;
+UPDATE jogo
+SET quantidade_disponivel = 34
+WHERE id_jogo = 24;
+UPDATE jogo
+SET quantidade_disponivel = 54
+WHERE id_jogo = 19;
+
+SAVEPOINT Resjutes_estoque;
+
+-- Transação de devolução
+SELECT status_locacao FROM locacao;
+START TRANSACTION;
+UPDATE locacao
+SET status_locacao = 'DEVOLVIDO'
+WHERE id_locacao = 1;
+COMMIT
