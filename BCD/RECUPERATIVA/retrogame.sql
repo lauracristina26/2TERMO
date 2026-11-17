@@ -131,6 +131,8 @@ FROM JOGO;
 SELECT MIN(quantidade_disponivel) AS quantidade_minima
 FROM JOGO;
 
+SELECT 
+
 SELECT c.nome, l.id_locacao
 FROM cliente AS c
 LEFT JOIN locacao AS l
