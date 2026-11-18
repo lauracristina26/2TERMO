@@ -1,0 +1,77 @@
+.inicio {
+    /* background-color: rgb(255, 122, 142); */
+    background-image: linear-gradient(135deg, #9646e5, #fb79bd);
+    display: flex;
+    border-radius: 25px; /*arredonda as bordas*/
+    border: 2px solid #f40373; /*cor da linhas nas arredondas*/
+    height: 80px;
+    
+    /* align-items: center; /*alinha horizotal*/
+    justify-content: flex-start;
+    /*align-content: flex-start; alinha vertical */
+}
+
+body {
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0 20px;
+}
+
+.inicio span {
+    color: #FFFFFF;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 800;
+}
+
+.inicio a {
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.navegacao {
+    display: flex;
+    /* flex-wrap: wrap; Quebra linhas deixando uma embaixo da outra*/
+    /* flex-direction: row; deixa em linhas normais*/
+    text-decoration: none;
+    list-style: none;
+    gap: 48px;
+    margin: 20px;
+    padding: 10px;
+    /* align-items: flex-start; alinhamento do espaço das palavras*/
+    justify-content: space-between;
+    /* align-content: flex-start; /*alinhamentos dos conteudos como um todo*/
+}
+
+.conteudo-inicial {
+    background-color: #fe9cbc;
+    display: flex;
+}
+
+.conteudo-art {
+    display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    font-style: italic;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+}
+
+img { /*sempre vai aplicar estas duas linhas de formatação*/
+    display: block;
+    width: 100%; 
+}
+
+.cartao-img {
+    transition: all 0.2s ease;
+}
+
+.cartao-img:hover {
+    box-shadow: 0 10px 24px -8px rgba(0, 0, 128, 0.8);
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(6px);
+    transform: translateX(120px) rotate(10deg);
+}
