@@ -2,8 +2,8 @@
     /* background-color: rgb(255, 122, 142); */
     background-image: linear-gradient(135deg, #9646e5, #fb79bd);
     display: flex;
-    border-radius: 25px; /*arredonda as bordas*/
-    border: 2px solid #f40373; /*cor da linhas nas arredondas*/
+    /*border-radius: 25px; arredonda as bordas*/
+   /* border: 2px solid #f40373; cor da linhas nas arredondas*/
     height: 80px;
     
     /* align-items: center; /*alinha horizotal*/
@@ -74,4 +74,68 @@ img { /*sempre vai aplicar estas duas linhas de formatação*/
     background: rgba(255,255,255,0.25);
     backdrop-filter: blur(6px);
     transform: translateX(120px) rotate(10deg);
+}
+
+.galeria-conteudo {
+    background-color: #f6bbcf;
+    padding: 0;
+    margin: 0;
+}
+
+.galeria-img {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    grid-column: auto;
+} 
+
+.galeria-img img {
+    display: block;
+    max-width: 100%;
+    height: 80%;
+}
+
+.galeria-img , ul {
+    text-decoration: none;
+    list-style: none;
+}
+
+.gal-img {
+    position: relative; /*a imagem ficará relativo que pode ser sobreposta a absoluta*/
+    overflow: hidden;
+    border-radius: 14px;
+    height: auto;
+    object-fit: contain;
+}
+
+.gal-img figcaption {
+    position: absolute; /*foi colocado no absoluta para sobrepor a relativa*/
+    inset: auto 0 0 0;
+    padding: 14px;
+    color: #fb79bd;
+    background: #0F172A;
+    transform: translateY(100%);
+    transition: transform 0.3 ease;
+}
+
+.gal-img:hover figcaption {
+    transform: translateY(0);
+}
+
+.frases {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+.img-ultimo {
+    position: relative;
+    display: block ;
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+    /*contain, fill, scale-down none*/
+    object-position: center;
+    scroll-snap-type: x mandatory;
+    scroll-snap-align: center;
 }
