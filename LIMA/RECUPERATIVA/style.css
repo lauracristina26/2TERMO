@@ -159,3 +159,24 @@ body {
 .card-img:hover figcaption {
     transform: translateY(0);
 }
+
+.programacao {
+    display: flex;
+    background-color: var(--rosa-blush);
+    flex-direction: column;
+    justify-content: center;
+}
+
+.programacao h2 {
+    font-family: var(--fonte-secundaria);
+    color: var(--roxo-escuro);
+}
+
+.programacao p {
+    color: black;
+    font-family: var(--fonte-principal);
+    font-style: italic;
+    font-weight: 700;
+}
+
+
