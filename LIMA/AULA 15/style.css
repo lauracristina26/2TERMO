@@ -1,0 +1,10 @@
+.link-antigo {
+    text-decoration: none;
+    list-style: none;
+    border: 1px solid brown;
+    border-radius: 120px;
+    background-color: lightpink;
+    color: aliceblue;
+    padding: 10px;
+    margin: 23px;
+}
