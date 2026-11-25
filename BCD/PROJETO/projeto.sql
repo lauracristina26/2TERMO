@@ -93,8 +93,23 @@ INSERT INTO clientes (nome, email, telefone, cpf) VALUES
 ('Laura C', 'laura.c@gmail.com', '123456789', 632636284628462),
 ('Leonardo', 'leonardo@gmail.com', '987654321', 2387397293),
 ('Pablo', 'pablo@gmail.com', '555555555', 2636634468736426),
-('Sophie', 'sophie@gmail.com', '111111111', 8173274723749827);
+('Elena', 'elena@gmail.com', '123242541', 8173274723749827),
+('Sophie', 'sophie@gmail.com', '1239493828', 12483927483578),
+('Nathaniel', 'nathaniel@gmail.com', '192883823', 253463453523),
+('Maria Luisa', 'marialuisa@gmail.com', '342522232', 4234423424523),
+('Alia', 'alia@gmail.com', '92398878', 254358934593840),
+('Tatianne', 'tatianne@gmail.com', '232745273', 24763762746782),
+('Mayara', 'mayara@gmail.com', '928723231', 432764782635862);
 
+-- TCL
+
+SELECT * FROM clientes;
+
+COMMIT;
+
+ROLLBACK;
+
+START TRANSACTION;
 
 
 INSERT INTO tecnicos (nome, turno, setor, especialidade, status) VALUES
@@ -102,7 +117,20 @@ INSERT INTO tecnicos (nome, turno, setor, especialidade, status) VALUES
 ('Pablo', 'Manhã', 'Manutenção', 'Microsoldagem', 'ativo'),
 ('Sophie', 'Noite', 'Manutenção', 'Infraestrutura e Redes', 'ativo'),
 ('Livia', 'Tarde', 'Controle de Qualidade', 'Segurança de Dados', 'ativo'),
-('Leonardo', 'Noite', 'Estoque e Compra', 'Assistência Técnica Autorizada', 'ativo');
+('Leonardo', 'Noite', 'Estoque e Compra', 'Assistência Técnica Autorizada', 'ativo'),
+('Miguel', 'Noite', 'Triagem e Diagnóstico Inicial', 'Especilista por marca', 'ativo'),
+('Larissa', 'Manhã', 'Acabamento e recondicionamento', 'Microsoldagem', 'ativo'),
+('Merisa', 'Tarde', 'Estoque e Compra', 'Recuperação de Dados', 'ativo'),
+('Piper', 'Manhã', 'Reparo Modular', 'Técnico em Campo', 'ativo');
+
+-- TCL
+SELECT * FROM tecnicos;
+
+COMMIT;
+
+ROLLBACK;
+
+START TRANSACTION;
 
 
 INSERT INTO pecas (descricao_pecas, fabricante, valor_peca, quantidade_estoque) VALUES
@@ -113,6 +141,14 @@ INSERT INTO pecas (descricao_pecas, fabricante, valor_peca, quantidade_estoque) 
 ('Carcaça', 'ZAGG', 900, 1559),
 ('Sensores', 'Bosch Sensortec', 99.90, 5614);
 
+-- TCL
+SELECT TABLE pecas;
+
+COMMIT;
+
+ROLLBACK;
+
+
 INSERT INTO equipamentos (tipo, numero_serie, marca, modelo, estado_entrada) VALUES
 ('Placa Principal','156', 'Micron', 'ABERTO'),
 ('Parafuso Phillips','164','PINGOOD', 'ABERTO'),
@@ -121,6 +157,15 @@ INSERT INTO equipamentos (tipo, numero_serie, marca, modelo, estado_entrada) VAL
 ('Carcaça Tampa traseira e Aro lateral', '136', 'ZAGG', 'ABERTO'),
 ('Sensores Acelerômetro, Giroscópio, Magnetômetro, Barômetro', '171','Bosch Sensortec', 'ABERTO');
 
+-- TCL
+
+SELECT TABLE clientes;
+
+COMMIT;
+
+ROLLBACK;
+START TRANSACTION;
+
 INSERT INTO chamados (data_atendimento, defeito_relatado, diagnostico, valor_servico, status_chamados) VALUES
 ('2026-09-24', 'Trava na tela inicial', NULL, 100.89, 'ABERTO'),
 ('2026-07-16', 'Demora no carregamento e ocorreu o estufamento da bateria', NULL, 800.40, 'ABERTO'),
@@ -128,3 +173,72 @@ INSERT INTO chamados (data_atendimento, defeito_relatado, diagnostico, valor_ser
 ('2026-07-18', 'Dificuldade de Navegação na WEB e demora na abertura de abas', 'Vírus Dectadado e será feita formatação no computador', 300.40, 'ABERTO'),
 ('2026-08-18', NULL, NULL, 1020.45, 'ABERTO'),
 ('2026-11-18', NULL, NULL, 250.60, 'ABERTO');
+
+-- TCL
+SELECT * FROM chamados;
+
+COMMIT;
+
+ROLLBACK;
+
+
+
+-- DQL
+
+-- SELEÇÃO DA TABELA CLIENTES.
+SELECT * FROM clientes;
+
+
+-- SELEÇÃO DE INFORMAÇÕES ESPECIFICAS DA TABELA CLIENTE.
+SELECT nome, email FROM clientes;
+
+
+-- SELEÇÃO DE INFORMAÇÕES ESPECIFICAS SOBRE UMA CONDIÇÃO.
+SELECT nome, setor
+from tecnicos
+where turno = 'Tarde';
+
+
+-- SELEÇÃO DE INFORMAÇÕES DE SETOR ESPECIFICO E TURNOS.
+SELECT nome, turno, setor
+FROM tecnicos
+WHERE setor = 'Manutenção'
+AND (turno = 'Manhã' OR turno = 'Noite');
+
+
+-- SELEÇÃO DE INFORMAÇÕES ENTRE PREÇOS.
+SELECT descricao_peca, valor_peca
+FROM pecas
+WHERE valor_peca BETWEEN 0 AND 420;
+
+
+--SELEÇÃO DE INFORMAÇÕES QUE NÃO CONTEM ESSES FABRICANTES.
+SELECT descricao_peca, fabricante
+FROM pecas
+WHERE fabricante NOT IN('BYD', 'Forward');
+
+
+-- SELECIONA A PALAVRA PESQUISADA NA TABELA.
+SELECT tipo, numero_serie, marca, modelo, estado_entrada
+FROM equipamentos
+WHERE tipo LIKE '%Placa Principal%';
+
+
+--SELECIONA A TABELA E DEIXA EM CRESCENTE.
+SELECT tipo, numero_serie
+FROM equipamentos
+ORDER BY numero_serie ASC;
+
+
+--DEMONSTRA A QUANTIDADE DE CHAMADAS ABERTAS.
+SELECT SUM(status_chamados) AS CHAMADAS
+FROM chamados
+WHERE status_chamados = 'ABERTO';
+
+
+-- SELECIONA NA TABELA AS DATAS DOS CHAMADOS E DEMONSTRA VALOR.
+SELECT id_chamados, data_atendimento, valor_servico
+FROM chamados
+WHERE data_atendimento BETWEEN '2026-07-16' AND '2026-08-18';
+
+
